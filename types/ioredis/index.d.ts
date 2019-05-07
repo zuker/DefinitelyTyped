@@ -105,6 +105,8 @@ declare namespace IORedis {
         strlen(key: KeyType): Promise<number>;
 
         del(...keys: KeyType[]): Promise<number>;
+        
+        unlink(...keys: KeyType[]): Promise<number>;
 
         exists(...keys: KeyType[]): Promise<number>;
         exists(key: KeyType, callback: (err: Error, res: number) => void): void;
@@ -120,6 +122,7 @@ declare namespace IORedis {
 
         getrange(key: KeyType, start: number, end: number, callback: (err: Error, res: string) => void): void;
         getrange(key: KeyType, start: number, end: number): Promise<string>;
+        getrangeBuffer(key: KeyType, start: number, end: number, callback: (err: Error, res: Buffer) => void): void;
 
         substr(key: KeyType, start: number, end: number, callback: (err: Error, res: string) => void): void;
         substr(key: KeyType, start: number, end: number): Promise<string>;
